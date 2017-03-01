@@ -22,7 +22,7 @@ function init(){
 	var cube = new THREE.Mesh(new THREE.CubeGeometry(2,2,4),
 		new THREE.MeshPhongMaterial({
 			color : 0xe2e2e2,
-			map : new THREE.TextureLoader().load('0.png', function() {
+			map : new THREE.TextureLoader().load('cube.png', function() {
                     renderer.render(scene, camera);
                 })
 		})
@@ -32,22 +32,22 @@ function init(){
 	scene.add(cube);
 
 	//plane
-	var planeTexture = new THREE.TextureLoader().load('chess.png', function() {
+	var planeTexture = new THREE.TextureLoader().load('floor.png', function() {
                     	renderer.render(scene, camera);});
 	planeTexture.wrapS = planeTexture.wrapT = THREE.ReapeatWrapping;
-	planeTexture.repeat.set(6,6);
-	var plane = new THREE.Mesh(new THREE.PlaneGeometry(16,10,16,16),
+	planeTexture.repeat.set(16,16);
+	var plane = new THREE.Mesh(new THREE.PlaneGeometry(16,16,16,16),
 		new THREE.MeshLambertMaterial({color:0xd4f2e7,map:planeTexture})
 		);
 	plane.rotation.x = -Math.PI/2;
-	plane.position.y = -1.3;
+	plane.position.y = -1.4;
 	plane.receiveShadow = true;
 	scene.add(plane);
 
 	//torus
-	var torusTexture = new THREE.TextureLoader().load('0.png', function() {
+	var torusTexture = new THREE.TextureLoader().load('torus.png', function() {
                     	renderer.render(scene, camera);});
-	var torus1 = new THREE.Mesh(new THREE.TorusGeometry(0.3,0.1,12,18),
+	var torus1 = new THREE.Mesh(new THREE.TorusGeometry(0.3,0.1,20,30),
 		new THREE.MeshPhongMaterial({
 			color : 0xe2e2e2,
 			specular: 0xffffff,
@@ -55,7 +55,7 @@ function init(){
 			map:torusTexture
 		})
 	);
-	var torus2 = new THREE.Mesh(new THREE.TorusGeometry(0.3,0.1,12,18),
+	var torus2 = new THREE.Mesh(new THREE.TorusGeometry(0.3,0.1,20,30),
 		new THREE.MeshPhongMaterial({
 			color : 0xe2e2e2,
 			specular: 0xffffff,
